@@ -14,11 +14,14 @@ build:
 
 python:
   install:
-    - method: pip
+     - method: pip
       path: ./docs
     - requirements: docs/requirements.txt
+    - requirements: requirements.txt
+      extra_requirements:
+        - docs
     - method: setuptools
-      path: jockbot
+      path: jockmkt_trading_bot/jockbot
 
         # Build documentation in the docs_sdk/ directory with Sphinx
 sphinx:
