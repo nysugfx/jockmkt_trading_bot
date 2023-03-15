@@ -18,7 +18,7 @@ python:
     - method: pip
       path: .
       extra_requirements:
-        - docs_sdk
+        - docs
     - method: setuptools
       path: jockbot
 
