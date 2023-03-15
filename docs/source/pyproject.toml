@@ -1,5 +1,5 @@
 [build-system]
-requires = ["requests >= 2.27.1", "DateTime >= 4.3", "websockets >= 10.3", 'typing >= 3.7.4', 'typing_extensions >= 4.0.1', 'setuptools', 'jockmkt-sdk', 'certifi', 'numpy', 'Jinja2']
+requires = ['jockmkt-sdk']
 build-backend = "setuptools.build_meta"
 
 [project]
