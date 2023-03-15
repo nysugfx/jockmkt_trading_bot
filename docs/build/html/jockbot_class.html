@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JockBot Structure &mdash; JockBot 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strategies" href="strategies.html" />
+    <link rel="prev" title="StrategyConfig Class" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JockBot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JockBot Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#information">information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strategies.html">Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html">Prebuilt Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#live-strategies">Live Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_strategies.html">Building Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JockBot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>JockBot Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/jockbot_class.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jockbot-structure">
+<h1>JockBot Structure<a class="headerlink" href="#jockbot-structure" title="Permalink to this headline"></a></h1>
+<section id="information">
+<h2>information<a class="headerlink" href="#information" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The JockBot is built on top of the <a class="reference external" href="https://github.com/nysugfx/jockmkt-sdk">jockmkt-sdk</a></p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="bot.JockBot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bot.</span></span><span class="sig-name descname"><span class="pre">JockBot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockmkt_sdk.client.Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockbot.strategy_base.Strategy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bot.EnvOrderCt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot" title="Permalink to this definition"></a></dt>
+<dd><p>Class responsible for most of the functionality of the jockbot. Not all attributes will be annotated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> – Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.client.Client</span></code></p></li>
+<li><p><strong>strategy</strong> – Instance of <a class="reference internal" href="custom_strategies.html#strategy_base.Strategy" title="strategy_base.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">strategy_base.Strategy</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>fees</strong> – current fee amount to trade. 0.02 or 2% at this release</p></li>
+<li><p><strong>client</strong> – stored version of client arg for access within a strategy</p></li>
+<li><p><strong>event_live</strong> – bool, whether the event is open to trading</p></li>
+<li><p><strong>event_info</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Event</span></code> containing info about the event in which we are trading</p></li>
+<li><p><strong>event_status</strong> – str, the event’s current status</p></li>
+<li><p><strong>player_dict</strong> – The entire player dictionary for the event, keyed by tradeable_id, structured as follows:</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">player_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;tdbl_xxx&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;last_updated&#39;</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+        <span class="s1">&#39;tradeable&#39;</span><span class="p">:</span> <span class="n">Tradeable</span> <span class="nb">object</span> <span class="p">(</span><span class="n">see</span> <span class="n">Jockmkt</span> <span class="n">SDK</span> <span class="n">docs</span> <span class="k">for</span> <span class="n">more</span><span class="p">)</span>
+        <span class="s1">&#39;count_ticks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">times</span> <span class="n">this</span> <span class="n">tradeable</span> <span class="n">has</span> <span class="n">been</span> <span class="n">updated</span><span class="p">,</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">timestamp</span><span class="p">],</span>
+        <span class="s1">&#39;pregame_projection&#39;</span><span class="p">:</span> <span class="n">pregame</span> <span class="n">fpts</span> <span class="n">projected</span><span class="p">,</span> <span class="nb">float</span>
+        <span class="s1">&#39;fpts_projected&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">array</span> <span class="n">of</span> <span class="n">live</span> <span class="n">fpts</span> <span class="n">projected</span>
+        <span class="s1">&#39;fpts_scored&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">fpts</span> <span class="n">scored</span>
+        <span class="s1">&#39;estimated&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">estimated</span> <span class="n">prices</span>
+        <span class="s1">&#39;bid&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">bids</span>
+        <span class="s1">&#39;ask&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">asks</span>
+        <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">last</span> <span class="n">traded</span> <span class="n">price</span>
+        <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">high</span> <span class="n">traded</span> <span class="n">price</span>
+        <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="n">of</span> <span class="n">low</span> <span class="n">traded</span> <span class="n">price</span>
+        <span class="s1">&#39;stats&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;stat1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">]</span> <span class="n">of</span> <span class="n">a</span> <span class="n">stat</span>
+            <span class="n">the</span> <span class="n">stats</span> <span class="nb">dict</span> <span class="n">differs</span> <span class="n">between</span> <span class="n">sport</span><span class="p">,</span> <span class="n">but</span> <span class="n">contains</span> <span class="nb">all</span> <span class="n">numerical</span> <span class="n">stats</span> <span class="k">for</span> <span class="n">each</span> <span class="n">player</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>public_orders</strong> – a list of orders placed by the public</p></li>
+<li><p><strong>public_trades</strong> – a list of trades placed by the public</p></li>
+<li><p><strong>games</strong> – dict keyed by game id, mapping to <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Game</span></code> objects for all relevant games in the event</p></li>
+<li><p><strong>teams</strong> – dict keyed by team_id, mapping to <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Team</span></code> objects for all teams in event</p></li>
+<li><p><strong>balance</strong> – float, available balance.</p></li>
+<li><p><strong>holdings</strong> – dict mapping tradeable_id to <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Tradeable</span></code> for players in event</p></li>
+<li><p><strong>entry</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Entry</span></code> object</p></li>
+<li><p><strong>my_orders</strong> – list of currently active orders</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="StrategyConfig Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="strategies.html" class="btn btn-neutral float-right" title="Strategies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Friedman/nysugfx.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

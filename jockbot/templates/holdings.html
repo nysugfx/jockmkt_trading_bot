@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holdings: content.event_name</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>{{ content.event_name }}</h1>
+    <h2>Event ID: {{ content.event_id }}</h2>
+    <h3>Holding Count: {{ content.count }}</h3>
+    <h2>Total $ Holdings: {{ content.total_value }}</h2>
+    <h2>Total PNL: {{ content.pnl }}</h2>
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Tradeable ID</th>
+        <th>Quantity</th>
+        <th>Current Price</th>
+        <th>Total Cost</th>
+        <th>Avg Cost</th>
+        <th>Total Profit</th>
+        <th>Profit Per Share</th>
+    </tr>
+{% for item in content.holdings %}
+<tr>
+    <td class="c1"><img src="{{ item.image }}" alt="{{ item.name }} Headshot" height="70"/></td>
+    <td class="c2">{{ item.name }}</td>
+    <td class="c3">{{ item.tradeable_id }}</td>
+    <td class="c4">{{ item.qty }}</td>
+     <td class="c5">{{ item.current_price }}</td>
+    <td class="c6">{{ item.total_cost }}</td>
+    <td class="c7">{{ item.avg_cost }}</td>
+    <td class="c8">{{ item.total_profit }}</td>
+    <td class="c9">{{ item.profit_per_share }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</body>
+</html>

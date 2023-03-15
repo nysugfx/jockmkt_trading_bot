@@ -1,0 +1,7 @@
+[build-system]
+requires = ["requests >= 2.27.1", "DateTime >= 4.3"]
+
+[project]
+name = "jockmkt-sdk"
+authors = [{name = "Alex Friedman/nysugfx", email = "nysu.gfx@gmail.com"}]
+dynamic = ["version", "description"]

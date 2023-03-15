@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; JockBot 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="StrategyConfig Class" href="config.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JockBot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first">First…</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jockbot_class.html">JockBot Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strategies.html">Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html">Prebuilt Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#live-strategies">Live Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_strategies.html">Building Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JockBot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<section id="first">
+<h2>First…<a class="headerlink" href="#first" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Step 1:</dt><dd><ul>
+<li><p>Fork/Clone this GitHub repository to your local machine</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Step 2:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Step 3:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Set the following environment variables (this can be done via terminal or in your IDE):</dt><dd><ul>
+<li><p><strong>api_key</strong></p></li>
+<li><p><strong>secret_key</strong></p></li>
+<li><p><strong>log_path</strong> (defaults to ./)</p></li>
+<li><p><strong>log_level</strong> (defaults to 10 (debug), 20=info, 30=warning, 40=error, 50=critical) (recommended: 20)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Setting env vars with terminal:</dt><dd><ul>
+<li><dl class="simple">
+<dt>If using bash:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">var_name=value</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>In python:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">os.environ[var_name]</span> <span class="pre">=</span> <span class="pre">value</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>You can also just set these values directly in the <code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code>, but it is recommended to use env vars to store api keys safely.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Step 4 (TRADE!):</p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jockbot</span>
+<span class="kn">from</span> <span class="nn">strategy_base</span> <span class="kn">import</span> <span class="n">Strategy</span><span class="p">,</span> <span class="n">StrategyConfig</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">StrategyConfig</span><span class="p">()</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="s1">&#39;evt_xxx&#39;</span>
+    <span class="c1">#  adjust other parameters as you would like. See details below.</span>
+    <span class="n">strat</span> <span class="o">=</span> <span class="n">Strategy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">jockbot</span><span class="o">.</span><span class="n">trade_strategy</span><span class="p">(</span><span class="n">strat</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace the strategy import above with one of the prebuilt strategies, or your own!</p>
+</div>
+<p>See <a class="reference internal" href="strategies.html#id1"><span class="std std-ref">Strategies</span></a>: for more information on strategies (custom and prebuilt)</p>
+<p>See <a class="reference internal" href="config.html#config"><span class="std std-ref">StrategyConfig Class</span></a>: for more information on setting up your config.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Setting your <code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code></dt><dd><ul>
+<li><p><strong>event_id</strong>: the event id for the event in which you want to trade</p></li>
+<li><p><strong>order_size</strong>: optional, the number of shares per order. Some included strategies will allow you to</p></li>
+<li><p><strong>array_len</strong>: length of numpy array storing historical websocket data. Useful if you are using moving averages, etc.</p></li>
+<li><p><strong>always_update</strong>: whether you want to update array when there is no new information</p></li>
+<li><p><strong>message_consumers</strong>: number of async message consumers you want. Defaults to 12, more may be necessary for large events.</p></li>
+<li><p><strong>phase</strong>: a list containing one or both of ‘live’, ‘ipo’</p></li>
+<li><p><strong>log_level</strong>: logging levels in accordance with python <a class="reference external" href="https://docs.python.org/3/howto/logging.html#logging-levels">logging</a> package.</p></li>
+<li><p><strong>log_path</strong>: where the user wants to store logs in /log folder. Defaults to current directory</p></li>
+<li><p><strong>max_spend</strong>: maximum dollar amount the user wants to invest in this event</p></li>
+<li><p><strong>max_position</strong>: maximum shares of a player the user wants to own. The jockbot will never buy more than this number of any one player.</p></li>
+<li><p><strong>print_to_console</strong>: whether or not to print log messages to console.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Step 5:</dt><dd><ul>
+<li><p>Monitor your strategy!</p></li>
+<li><p><a class="reference external" href="localhost:8080/pnl">Profit and Loss</a></p></li>
+<li><p><a class="reference external" href="localhost:8080/holdings">Holdings</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="config.html" class="btn btn-neutral float-right" title="StrategyConfig Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Friedman/nysugfx.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

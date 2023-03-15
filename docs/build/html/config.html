@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StrategyConfig Class &mdash; JockBot 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JockBot Structure" href="jockbot_class.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JockBot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jockbot_class.html">JockBot Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strategies.html">Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html">Prebuilt Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#live-strategies">Live Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_strategies.html">Building Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JockBot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="strategyconfig-class">
+<span id="config"></span><h1><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class<a class="headerlink" href="#strategyconfig-class" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategy_base.StrategyConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategy_base.</span></span><span class="sig-name descname"><span class="pre">StrategyConfig</span></span><a class="headerlink" href="#strategy_base.StrategyConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Base strategy config class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_id</strong> – the event ID for the event the user wishes to trade in</p></li>
+<li><p><strong>order_size</strong> – number of shares per order. some strategies allow you to set the $ amount too. see that strategy’s config. Default: 1</p></li>
+<li><p><strong>api_key</strong> – your api token</p></li>
+<li><p><strong>secret_key</strong> – your secret key</p></li>
+<li><p><strong>max_spend</strong> – the max $ amount you want to spend. Default: 1000</p></li>
+<li><p><strong>max_position</strong> – the maximum number of shares you would like to own at a time</p></li>
+<li><p><strong>phase</strong> – a list of phases, must contain at least one of ‘ipo’ or ‘live’ depending on your strategy, or both.</p></li>
+<li><p><strong>array_len</strong> – how much historical data the user would like saved. An array of length 1000 will hold the last 1000 updates, for example, to projected fantasy points (or other statistics/metrics) default: 300</p></li>
+<li><p><strong>print_to_console</strong> – should logging messages be printed to console</p></li>
+<li><p><strong>log_path</strong> – where the user wishes logs to be stored. The default will create a log folder wherever the bot is being run from. default: ‘./’</p></li>
+<li><p><strong>log_level</strong> – logging.DEBUG, logging.INFO, logging.ERROR, etc. Default: logging.DEBUG or 10</p></li>
+<li><p><strong>log_path</strong> – the path you’d like to build your logs folder. Default ‘./’</p></li>
+<li><p><strong>always_update</strong> – If false, numpy arrays for each player will only update when there is a change in that data point (i.e. only when a player scores fantasy points, or their estimated price changes). If true, numpy arrays update regardless of whether there is a change in fpts, price, or stat. Default: False</p></li>
+<li><p><strong>prefill</strong> – if True, numpy arrays will be filled with the initial statistic, price or metric. If False, fills numpy arrays with zeros, and the last index of the array will have initial stat, price or metric. Default: True</p></li>
+<li><p><strong>message_consumers</strong> – number of websocket message consumers. The more players there are in the event, the more you should increase this number. Max recommended is 12.</p></li>
+<li><p><strong>port</strong> – the port for web interface, default: 8080. Can be set via env vars</p></li>
+<li><p><strong>host_name</strong> – host name, defaults to 127.0.0.1 (localhost)</p></li>
+<li><p><strong>web_popup</strong> – open up a webpage with information about holdings and pnl. Default: True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jockbot_class.html" class="btn btn-neutral float-right" title="JockBot Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Friedman/nysugfx.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

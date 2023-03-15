@@ -1,0 +1,6 @@
+pytest>=7.1.1
+numpy>=1.21.6
+DateTime>=4.3
+jockmkt-sdk>=0.2.14
+Jinja2>=3.1.2
+pyfiglet>=0.0

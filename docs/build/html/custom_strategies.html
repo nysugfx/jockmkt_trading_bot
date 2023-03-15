@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Strategies &mdash; JockBot 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Signals" href="signals.html" />
+    <link rel="prev" title="Prebuilt Strategies" href="prebuilt_strategies.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JockBot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jockbot_class.html">JockBot Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strategies.html">Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html">Prebuilt Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#live-strategies">Live Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JockBot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Building Strategies</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/custom_strategies.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="building-strategies">
+<span id="custom-strategies"></span><h1>Building Strategies<a class="headerlink" href="#building-strategies" title="Permalink to this headline"></a></h1>
+<p>The user must build their strategy in the footprint of the <a class="reference internal" href="#strategy_base.Strategy" title="strategy_base.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">strategy_base.Strategy</span></code></a> class.
+The following methods interact with the jockbot. The user is free to build whatever signal generating functions they wish,
+but they must return a <a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a> via one of the following methods. See <a class="reference internal" href="signals.html#signals"><span class="std std-ref">Signals</span></a></p>
+<p>There are methods within the JockBot that allow the user to fetch certain variables from the jockbot too.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategy_base.Strategy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategy_base.</span></span><span class="sig-name descname"><span class="pre">Strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="config.html#strategy_base.StrategyConfig" title="strategy_base.StrategyConfig"><span class="pre">strategy_base.StrategyConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="config.html#strategy_base.StrategyConfig" title="strategy_base.StrategyConfig"><span class="pre">strategy_base.StrategyConfig</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#strategy_base.Strategy" title="Permalink to this definition"></a></dt>
+<dd><p>all strategy funcs must return a Signal object, to which you pass in an order (or list of orders)
+and/or a list of order_ids to cancel</p>
+<p>for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_data</span><span class="p">(</span><span class="n">tradeable_id</span><span class="p">,</span> <span class="n">player_dict</span><span class="p">)</span>
+    <span class="n">orders</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;tradeable_id&#39;</span><span class="p">:</span> <span class="n">tradeable_id</span><span class="p">,</span>
+             <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mf">2.00</span>
+             <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">1</span>
+             <span class="s1">&#39;side&#39;</span><span class="p">:</span> <span class="s1">&#39;buy&#39;</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;tradeable_id&#39;</span><span class="p">:</span> <span class="n">tradeable_id</span><span class="p">,</span>
+             <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="kc">None</span>
+             <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">1</span>
+             <span class="s1">&#39;side&#39;</span><span class="p">:</span> <span class="s1">&#39;sell&#39;</span><span class="p">}]</span>
+    <span class="n">cancels</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;ord_xxx1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ord_xxx2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ord_xxx3&#39;</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">Signal</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">cancels</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_start">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jockbot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockbot.bot_typing.JockBot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#strategy_base.Strategy.on_start" title="Permalink to this definition"></a></dt>
+<dd><p>functions to be called upon initialization of the websockets within the JockBot.</p>
+<p>The JockBot will pass itself through as an argument. See the JockBot documentation for available instance vars.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jockbot</strong> – <a class="reference internal" href="jockbot_class.html#bot.JockBot" title="bot.JockBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">bot.JockBot</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.ipo_trade">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">ipo_trade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jockbot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockbot.bot_typing.JockBot</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.ipo_trade" title="Permalink to this definition"></a></dt>
+<dd><p>function passes through the jockbot and should return a list of signals that will be traded during IPO</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jockbot</strong> – <a class="reference internal" href="jockbot_class.html#bot.JockBot" title="bot.JockBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">bot.JockBot</span></code></a> object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_stop">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jockbot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockbot.bot_typing.JockBot</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_stop" title="Permalink to this definition"></a></dt>
+<dd><p>functions that are called whenever the jockbot stops, such as a profit calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jockbot</strong> – <a class="reference internal" href="jockbot_class.html#bot.JockBot" title="bot.JockBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">bot.JockBot</span></code></a> object</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_data">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tradeable_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">jockbot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockbot.bot_typing.JockBot</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_data" title="Permalink to this definition"></a></dt>
+<dd><p>The JockBot passes the following information to this function every time there is a tradeable update.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tradeable_id</strong> – Tradeable ID that has been updated</p></li>
+<li><p><strong>jockbot</strong> – the <a class="reference internal" href="jockbot_class.html#bot.JockBot" title="bot.JockBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">bot.JockBot</span></code></a> and all of its contained information.</p></li>
+</ul>
+</dd>
+</dl>
+<p>The entire player dictionary for the event can be accessed, keyed by tradeable_id, structured as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jockbot</span><span class="o">.</span><span class="n">player_dict</span><span class="p">[</span><span class="n">tradeable_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;last_updated&#39;</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+    <span class="s1">&#39;tradeable&#39;</span><span class="p">:</span> <span class="n">Tradeable</span> <span class="nb">object</span> <span class="p">(</span><span class="n">see</span> <span class="n">Jockmkt</span> <span class="n">SDK</span> <span class="n">docs</span> <span class="k">for</span> <span class="n">more</span><span class="p">)</span>
+    <span class="s1">&#39;count_ticks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">times</span> <span class="n">this</span> <span class="n">tradeable</span> <span class="n">has</span> <span class="n">been</span> <span class="n">updated</span><span class="p">,</span>
+    <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">timestamp</span><span class="p">],</span>
+    <span class="s1">&#39;pregame_projection&#39;</span><span class="p">:</span> <span class="n">pregame</span> <span class="n">fpts</span> <span class="n">projected</span><span class="p">,</span> <span class="nb">float</span>
+    <span class="s1">&#39;fpts_projected&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">array</span> <span class="n">of</span> <span class="n">live</span> <span class="n">fpts</span> <span class="n">projected</span>
+    <span class="s1">&#39;fpts_scored&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">fpts</span> <span class="n">scored</span>
+    <span class="s1">&#39;estimated&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">estimated</span> <span class="n">prices</span>
+    <span class="s1">&#39;bid&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">bids</span>
+    <span class="s1">&#39;ask&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">asks</span>
+    <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">last</span> <span class="n">traded</span> <span class="n">price</span>
+    <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="n">of</span> <span class="n">high</span> <span class="n">traded</span> <span class="n">price</span>
+    <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="n">of</span> <span class="n">low</span> <span class="n">traded</span> <span class="n">price</span>
+    <span class="s1">&#39;stats&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;stat1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">]</span> <span class="n">of</span> <span class="n">a</span> <span class="n">stat</span>
+    <span class="n">the</span> <span class="n">stats</span> <span class="nb">dict</span> <span class="n">differs</span> <span class="n">between</span> <span class="n">sport</span><span class="p">,</span> <span class="n">but</span> <span class="n">contains</span> <span class="nb">all</span> <span class="n">numerical</span> <span class="n">stats</span> <span class="k">for</span> <span class="n">each</span> <span class="n">player</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_tick">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_tick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockmkt_sdk.objects.PublicOrder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_orders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_tick" title="Permalink to this definition"></a></dt>
+<dd><p>The JockBot Passes information to this func every time a public order is placed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.PublicOrder</span></code> object, the order that was placed. See jockmkt sdk docs for more.</p></li>
+<li><p><strong>public_orders</strong> – list[<code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.PublicOrder</span></code>] objects that have been placed in the event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_order">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockmkt_sdk.objects.Order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">my_orders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jockmkt_sdk.objects.Order</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_order" title="Permalink to this definition"></a></dt>
+<dd><p>The JockBot passes the following information tot his function every time a user’s orders are updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Object</span></code> object, the order that was created or updated</p></li>
+<li><p><strong>my_orders</strong> – a dictionary keyed by order_id containing orders that are active for this event</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_event">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockmkt_sdk.objects.Event</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_event" title="Permalink to this definition"></a></dt>
+<dd><p>JockBot calls this function every time the event is updated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event_info</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Event</span></code> object, see jockmkt sdk docs for info</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_play">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockmkt_sdk.objects.Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">games</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jockmkt_sdk.objects.Game</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_play" title="Permalink to this definition"></a></dt>
+<dd><p>JockBot calls this function every time there is a Game update, if the user is subscribed to ‘games’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Game</span></code> that was updated, see jockmkt sdk docs for info</p></li>
+<li><p><strong>games</strong> – list[<code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Game</span></code>]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="strategy_base.Strategy.on_trade">
+<span class="sig-prename descclassname"><span class="pre">Strategy.</span></span><span class="sig-name descname"><span class="pre">on_trade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trade</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jockmkt_sdk.objects.Trade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_trades</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jockbot.signals.Signal</span></span></span><a class="headerlink" href="#strategy_base.Strategy.on_trade" title="Permalink to this definition"></a></dt>
+<dd><p>Passes the trade and the list of all public trades to your strategy when there is a trade websocket message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trade</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Trade</span></code></p></li>
+<li><p><strong>public_trades</strong> – list[<code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Trade</span></code>]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="signals.html#signals.Signal" title="signals.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">signals.Signal</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch Player Dict with all player data</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_player_dict">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_player_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_player_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Fetch a dictionary with all player informaiton, structured as follows (all arrays’ most recent update is in the last index, or -1):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">player_dict</span> <span class="o">=</span>
+    <span class="p">{</span><span class="n">tradeable_id</span><span class="p">:</span>
+        <span class="p">{</span><span class="s1">&#39;last_updated&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">(),</span>
+        <span class="s1">&#39;tradeable&#39;</span><span class="p">:</span> <span class="n">jockmkt_sdk</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">Tradeable</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s1">&#39;count_ticks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">of</span> <span class="n">timestamps</span> <span class="k">for</span> <span class="n">each</span> <span class="n">update</span><span class="p">,</span>
+        <span class="s1">&#39;pregame_projection&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="s1">&#39;fpts_projected&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">projections</span><span class="p">,</span>
+        <span class="s1">&#39;fpts_scored&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">scored</span> <span class="n">fpts</span><span class="p">,</span>
+        <span class="s1">&#39;estimated&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">estimated</span> <span class="n">prices</span><span class="p">,</span>
+        <span class="s1">&#39;bid&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">bids</span><span class="p">,</span>
+        <span class="s1">&#39;ask&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">asks</span><span class="p">,</span>
+        <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">last</span> <span class="n">traded</span> <span class="n">price</span><span class="p">,</span>
+        <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">high</span> <span class="n">price</span><span class="p">,</span>
+        <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="n">numpy</span> <span class="n">array</span> <span class="n">updated</span> <span class="k">with</span> <span class="n">low</span> <span class="n">price</span><span class="p">,</span>
+        <span class="s1">&#39;stats&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">array</span> <span class="n">of</span> <span class="n">stats</span><span class="p">)}}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch current balance</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_bal">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_bal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_bal" title="Permalink to this definition"></a></dt>
+<dd><p>fetch the current balance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>float, current available balance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch client for use making requests</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_client">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_client" title="Permalink to this definition"></a></dt>
+<dd><p>fetch the active client, for use in a Strategy class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>jockmkt_sdk.client.Client</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch orders</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_orders">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_orders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_orders" title="Permalink to this definition"></a></dt>
+<dd><p>Fetch current active orders, keyed by order id.
+i.e.
+self.my_orders = {
+‘ord_xxx’: jockmkt_sdk.Order
+}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict[str, jockmkt_sdk.objects.Order]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch Active Holdings</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_holdings">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_holdings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_holdings" title="Permalink to this definition"></a></dt>
+<dd><p>Fetch active holdings, which are stored in a dictionary as follows:
+self.holdings = {
+‘tdbl_xxx’: jockmkt_sdk.objects.Position,
+‘tdbl_xxx’: jockmkt_sdk.objects.Position
+}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict[str, jockmkt_sdk.objects.Position]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch Async Queue</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_queue">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_queue" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an asyncio Queue to which messages are being pushed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>asyncio.Queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch Entry</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_entry">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_entry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_entry" title="Permalink to this definition"></a></dt>
+<dd><p>Get the most recent entry update. It does not call the api, simply returns the last “entry” websocket message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>jockmkt_sdk.objects.Entry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch Games</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_games">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_games</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_games" title="Permalink to this definition"></a></dt>
+<dd><p>Fetch a dictionary of games in the event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict[str, <code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.object.Game</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Fetch Teams</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bot.JockBot.fetch_teams">
+<span class="sig-prename descclassname"><span class="pre">JockBot.</span></span><span class="sig-name descname"><span class="pre">fetch_teams</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bot.JockBot.fetch_teams" title="Permalink to this definition"></a></dt>
+<dd><p>Fetch a dictionary of teams, keyed by team_id with a list of all players on that team</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict[team_id, list[<code class="xref py py-class docutils literal notranslate"><span class="pre">jockmkt_sdk.objects.Entity</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="prebuilt_strategies.html" class="btn btn-neutral float-left" title="Prebuilt Strategies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="signals.html" class="btn btn-neutral float-right" title="Signals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Friedman/nysugfx.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

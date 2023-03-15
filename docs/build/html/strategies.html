@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategies &mdash; JockBot 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Prebuilt Strategies" href="prebuilt_strategies.html" />
+    <link rel="prev" title="JockBot Structure" href="jockbot_class.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JockBot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jockbot_class.html">JockBot Structure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Strategies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#strategy-introduction">Strategy Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initializing-a-strategy-and-running-it">Initializing a strategy and running it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prebuilt-strategies">Prebuilt Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-strategies">Custom Strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html">Prebuilt Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#live-strategies">Live Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_strategies.html">Building Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JockBot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Strategies</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/strategies.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Strategies<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<section id="strategy-introduction">
+<h2>Strategy Introduction<a class="headerlink" href="#strategy-introduction" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The user can implement any of the included strategies, or build their own.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Strategy</span></code> classes have a <code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> class. All custom strategies and strategy configs inherit their respective base classes.</p></li>
+</ul>
+</section>
+<section id="initializing-a-strategy-and-running-it">
+<h2>Initializing a strategy and running it<a class="headerlink" href="#initializing-a-strategy-and-running-it" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strategy_config</span> <span class="o">=</span> <span class="n">StrategyConfig</span><span class="p">()</span>
+<span class="c1"># edit and adjust aspects of the config</span>
+<span class="n">strategy_config</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Debug mode</span>
+<span class="n">strategy_config</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="s1">&#39;evt_xxx&#39;</span>
+
+<span class="n">strategy</span> <span class="o">=</span> <span class="n">Strategy</span><span class="p">(</span><span class="n">strategy_config</span><span class="p">)</span>
+
+<span class="n">jockbot</span><span class="o">.</span><span class="n">trade_strategy</span><span class="p">(</span><span class="n">strategy</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="prebuilt-strategies">
+<h2>Prebuilt Strategies<a class="headerlink" href="#prebuilt-strategies" title="Permalink to this headline"></a></h2>
+<p>See <a class="reference internal" href="prebuilt_strategies.html#prebuilt-strategies"><span class="std std-ref">Prebuilt Strategies</span></a></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>IPO:</dt><dd><ul>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">heat_check</span></dt><dd><ul>
+<li><p>Based off of historical data, decide if you want to go long or short on a player who is performing above, below, or at their projections.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">random_strategy</span></dt><dd><ul>
+<li><p>Buy N random players.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">short_top_long_bottom</span></dt><dd><ul>
+<li><p>Short all of the expensive players over a certain price and long anyone below a certain price.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>LIVE:</dt><dd><ul>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">short_early</span></dt><dd><ul>
+<li><p>Short players that score a lot of fantasy points early in an event</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">dump_late</span></dt><dd><ul>
+<li><p>Sell players who are likely to pay out less than their current best bid, once their game is complete.</p></li>
+<li><p>Buy players who are likely to pay out more than their current ask, once their game is complete.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">market_maker</span></dt><dd><ul>
+<li><p>Make a market on a single player.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="custom-strategies">
+<h2>Custom Strategies<a class="headerlink" href="#custom-strategies" title="Permalink to this headline"></a></h2>
+<p>See <a class="reference internal" href="custom_strategies.html#custom-strategies"><span class="std std-ref">Building Strategies</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jockbot_class.html" class="btn btn-neutral float-left" title="JockBot Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="prebuilt_strategies.html" class="btn btn-neutral float-right" title="Prebuilt Strategies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Friedman/nysugfx.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

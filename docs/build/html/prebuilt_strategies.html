@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prebuilt Strategies &mdash; JockBot 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building Strategies" href="custom_strategies.html" />
+    <link rel="prev" title="Strategies" href="strategies.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JockBot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><code class="docutils literal notranslate"><span class="pre">StrategyConfig</span></code> Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jockbot_class.html">JockBot Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strategies.html">Strategies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prebuilt Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#live-strategies">Live Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ipo-strategies">IPO Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_strategies.html">Building Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JockBot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Prebuilt Strategies</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/prebuilt_strategies.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="prebuilt-strategies">
+<span id="id1"></span><h1>Prebuilt Strategies<a class="headerlink" href="#prebuilt-strategies" title="Permalink to this headline"></a></h1>
+</section>
+<section id="live-strategies">
+<span id="prebuilt-live-strategies"></span><h1>Live Strategies<a class="headerlink" href="#live-strategies" title="Permalink to this headline"></a></h1>
+<dl class="simple" id="market-maker">
+<dt><strong>Market Maker</strong></dt><dd><ul class="simple">
+<li><p>Makes a market on a single player, with options regarding the spread and order sizes at the bid and ask</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.live.market_maker.MarketMakerConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.live.market_maker.</span></span><span class="sig-name descname"><span class="pre">MarketMakerConfig</span></span><a class="headerlink" href="#strategies.live.market_maker.MarketMakerConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Config requirements for the MarketMaker strategy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spread_type</strong> – whether the spread should be based on $ price or percent on either side of the mid price. either ‘percent’ or ‘price’</p></li>
+<li><p><strong>left_tail</strong> – $ or percent away from the mid-price you would like the bot to place its bid</p></li>
+<li><p><strong>right_tail</strong> – $ or percent away from the mid-price you would like the bot to place its ask</p></li>
+<li><p><strong>player_name</strong> – name of the player you want to make a market for. must match player’s name in jock api</p></li>
+<li><p><strong>tradeable_id</strong> – the player’s tradeable id. can be accessed via the webpage or api. preferred over ‘player_name’ var. e.g. ‘tdbl_64017ed1ce12bb263121f5a207c04f13’</p></li>
+<li><p><strong>left_tail</strong> – number of shares to place orders on at the bid</p></li>
+<li><p><strong>right_tail</strong> – number of shares to place orders on at the ask</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl id="dump-late">
+<dt><strong>Dump Late</strong></dt><dd><ul>
+<li><p>How it works:</p>
+<blockquote>
+<div><p>If a player’s game is completed, we know that they will not score any more fantasy points. Their price
+cannot go up unless other players score below their projection. If we have an opportunity to buy a player or sell a player at a profit
+compared to their projected payout, we do so.</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.live.dump_late.DumpLateConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.live.dump_late.</span></span><span class="sig-name descname"><span class="pre">DumpLateConfig</span></span><a class="headerlink" href="#strategies.live.dump_late.DumpLateConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Config additions required for the DumpLate strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>required_profit_margin</strong> – Require an estimated profit margin as a percentage before making a trade. Does not guarantee profit. Higher number will place less orders and take less risk.</p></li>
+<li><p><strong>order_size</strong> – Number of shares to buy in each order (min 1). I recommend playing around with this based on market liquidity.</p></li>
+<li><p><strong>dollar_size</strong> – required if no order_size, the dollar amount you would like to spend on an order (rather than share amount)
+e.g.: if price = 5 and dollar_size = 50, the bot will place an order for 10 shares. Default None</p></li>
+<li><p><strong>cancel_orders</strong> – Fill or kill orders. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl id="short-early">
+<dt><strong>Short Early</strong></dt><dd><ul>
+<li><p>How it works:</p>
+<blockquote>
+<div><p>Once an event has started, we are looking for players who far outperform their projections early on. These players are
+likely to fall back down to earth at some point before the event ends.</p>
+<p><em>For example</em>, in an NFL Sunday slate, if Saquon Barkley gets a 50 yard touchdown in the first 2 minutes of his 1pm game,
+he will be projected for many more points than anyone else. Because of this, his price will be very inflated.
+We should short him! This strategy is also applicable to NBA, and other sports, where a player scores a large chunk of
+points early on in the event.</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.live.short_early.ShortEarlyConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.live.short_early.</span></span><span class="sig-name descname"><span class="pre">ShortEarlyConfig</span></span><a class="headerlink" href="#strategies.live.short_early.ShortEarlyConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Required config settings for <code class="xref py py-class docutils literal notranslate"><span class="pre">ShortEarly</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_size</strong> – the number of shares per order</p></li>
+<li><p><strong>dollar_size</strong> – if not None, the $ amount worth of shares the user wishes to buy. e.g.: if price = 5 and dollar_size = 50, the bot will place an order for 10 shares.</p></li>
+<li><p><strong>price_risk</strong> – A risk parameter. Lower number = lower risk. e.g.: If you choose -1 price risk, the bot will short at 1.1x the current estimated price. (lower risk). If you choose 0.5, the bot will short the player at 0.95% of its estimated price (higher risk)</p></li>
+<li><p><strong>double_down</strong> – If you want the bot to short the player more than once. It will only short again if the player scores more fantasy points.</p></li>
+<li><p><strong>max_amount_completed</strong> – How much (%) of an event must be completed before the bot stops shorting players. This strategy is designed to short players who have scored a lot of fantasy points early in an event, and so it is only going to be profitable if this number is lower.</p></li>
+<li><p><strong>min_pct_gain</strong> – The strategy bids for players whose current estimated price is a certain percentage above their IPO. This parameter is the % the estimated price is above IPO that the player must be before the bot will consider placing an order.</p></li>
+<li><p><strong>min_ipo_price</strong> – Ignore players who have IPO’d for below a certain price. The higher this number, the fewer players the strategy will buy. This weeds out players who were cheap and way outperform their projections.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="ipo-strategies">
+<span id="prebuilt-ipo-strategies"></span><h1>IPO Strategies<a class="headerlink" href="#ipo-strategies" title="Permalink to this headline"></a></h1>
+<dl id="heat-check">
+<dt><strong>Heat Check</strong></dt><dd><ul>
+<li><p>How it works:</p>
+<blockquote>
+<div><p>There are numerous options for the heat check strategy. See <a class="reference internal" href="#strategies.ipo.heat_check.HeatCheckStrategies" title="strategies.ipo.heat_check.HeatCheckStrategies"><code class="xref py py-class docutils literal notranslate"><span class="pre">strategies.ipo.heat_check.HeatCheckStrategies</span></code></a> for details.
+The strategy pulls historical data, calculates a moving average of the player’s fantasy points, and compares
+it to their projection for this game, and generates a signal accordingly.</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.ipo.heat_check.HeatCheckStrategies">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.ipo.heat_check.</span></span><span class="sig-name descname"><span class="pre">HeatCheckStrategies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#strategies.ipo.heat_check.HeatCheckStrategies" title="Permalink to this definition"></a></dt>
+<dd><p>Enum with each possible strategy for heat_check</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>short_hot</strong> – strategy that shorts the players who have regularly been outperforming their projections, looking for mean reversion</p></li>
+<li><p><strong>short_cold</strong> – strategy that shorts the players who have regularly been underperforming projections</p></li>
+<li><p><strong>long_hot</strong> – long players who are outplaying their projection</p></li>
+<li><p><strong>long_cold</strong> – long players who have been underperforming, looking for a mean reversion</p></li>
+<li><p><strong>short_hot_long_cold</strong> – short players who have outperformed projection, and long players who are underperforming</p></li>
+<li><p><strong>long_hot_short_cold</strong> – long players who have outperformed projection, and short players who are underperforming</p></li>
+<li><p><strong>long_breakout</strong> – long players who have been performing closely to their projection</p></li>
+<li><p><strong>short_breakout</strong> – short players who have been performing closely to their projection</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.ipo.heat_check.HeatCheckConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.ipo.heat_check.</span></span><span class="sig-name descname"><span class="pre">HeatCheckConfig</span></span><a class="headerlink" href="#strategies.ipo.heat_check.HeatCheckConfig" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_size</strong> – the amount of shares to buy for each order. Default: 10</p></li>
+<li><p><strong>dollar_size</strong> – dollar amount to spend on each player (i.e. buy 10 shares at $5 for a total of $50, and 20 shares &#64; 2.5)</p></li>
+<li><p><strong>strategy</strong> – which HeatCheck strategy to use, see <a class="reference internal" href="#strategies.ipo.heat_check.HeatCheckStrategies" title="strategies.ipo.heat_check.HeatCheckStrategies"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeatCheckStrategies</span></code></a></p></li>
+<li><p><strong>pct_field</strong> – how many of the players in the field we should buy, as a float 0 &lt; x &lt; 1. If 100 players available
+and pct_field = 0.25, it will choose the optimal 25 players based on your strategy</p></li>
+<li><p><strong>window</strong> – the lookback window for the rolling average calc, default: 10</p></li>
+<li><p><strong>risk</strong> – buy at est price * (1 + risk), higher risk = higher price willing to pay</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl id="random-strategy">
+<dt><strong>Random Strategy</strong></dt><dd><ul>
+<li><p>How it works:</p>
+<blockquote>
+<div><p>Buy a percentage of the field at random during the IPO phase</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.ipo.random_strategy.RandomConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.ipo.random_strategy.</span></span><span class="sig-name descname"><span class="pre">RandomConfig</span></span><a class="headerlink" href="#strategies.ipo.random_strategy.RandomConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Config for the random strategy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pct_field_to_buy</strong> – percent of the available field to buy</p></li>
+<li><p><strong>order_size</strong> – number of shares to place each order</p></li>
+<li><p><strong>dollar_size</strong> – dollar amount to spend on each order</p></li>
+<li><p><strong>risk</strong> – how high above or below the price you want to bid. (-1, 1). Default: 0</p></li>
+<li><p><strong>sides</strong> – one of: ‘buy’, ‘sell’, or [‘buy’, ‘sell’]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl id="short-top-long-bottom">
+<dt><strong>Short Top, Long Bottom</strong></dt><dd><ul>
+<li><p>How it works:</p>
+<blockquote>
+<div><p>Short all players whose estimated price is over a certain number, and buy everyone under a certain est price.</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="strategies.ipo.short_top_long_bottom.ShortTopLongBottomConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategies.ipo.short_top_long_bottom.</span></span><span class="sig-name descname"><span class="pre">ShortTopLongBottomConfig</span></span><a class="headerlink" href="#strategies.ipo.short_top_long_bottom.ShortTopLongBottomConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Config with extra required variables to run <code class="xref py py-class docutils literal notranslate"><span class="pre">ShortTopLongBottom</span></code> strategy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_buy_price</strong> – buy all players below this price. Default 1.5</p></li>
+<li><p><strong>min_sell_price</strong> – sell all players above this price</p></li>
+<li><p><strong>order_size</strong> – number of shares to buy (alternatively, the user can set dollar_size)</p></li>
+<li><p><strong>dollar_size</strong> – dollar amount to spend on each order (i.e. if $20, buy 18 shares of a player at $1.50)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="strategies.html" class="btn btn-neutral float-left" title="Strategies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="custom_strategies.html" class="btn btn-neutral float-right" title="Building Strategies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Friedman/nysugfx.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
