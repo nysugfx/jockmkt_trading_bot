@@ -1,6 +1,5 @@
 [build-system]
 requires = ['jockmkt-sdk']
-build-backend = "setuptools.build_meta"
 
 [project]
 name = "jockbot"
