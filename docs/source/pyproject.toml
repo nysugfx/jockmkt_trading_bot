@@ -1,5 +1,5 @@
 [build-system]
-requires = ["DateTime >= 4.3", 'typing >= 3.7.4', 'typing_extensions >= 4.0.1', 'jockmkt-sdk >= 0.2.14']
+requires = ["DateTime >= 4.3", 'typing >= 3.7.4']
 
 [project]
 name = "jockbot"
