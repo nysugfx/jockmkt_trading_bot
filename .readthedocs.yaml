@@ -17,9 +17,6 @@ python:
     - method: pip
       path: ./docs
     - requirements: docs/requirements.txt
-    - requirements: requirements.txt
-      extra_requirements:
-        - docs
     - method: setuptools
       path: jockmkt_trading_bot/jockbot
 
