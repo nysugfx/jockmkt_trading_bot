@@ -1,5 +1,5 @@
 [build-system]
-requires = ['jockmkt-sdk']
+requires = ['setuptools', 'jockmkt-sdk']
 
 [project]
 name = "jockbot"
