@@ -1,5 +1,6 @@
 [build-system]
-requires = ["DateTime >= 4.3", 'typing >= 3.7.4']
+requires = ["DateTime >= 4.3", "setuptools>=65", "typing >= 3.7.4"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "jockbot"
