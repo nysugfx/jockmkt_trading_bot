@@ -1,5 +1,5 @@
 [build-system]
-requires = ["requests >= 2.27.1", "DateTime >= 4.3, "websockets >= 10.3", 'typing >= 3.7.4', 'typing_extensions >= 4.0.1', 'logging >= 0.4.9.6', 'jockmkt-sdk >= 0.2.14']
+requires = ["requests >= 2.27.1", "DateTime >= 4.3", "websockets >= 10.3", 'typing >= 3.7.4', 'typing_extensions >= 4.0.1', 'logging >= 0.4.9.6', 'jockmkt-sdk >= 0.2.14']
 
 [project]
 name = "jockbot"
