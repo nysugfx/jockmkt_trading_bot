@@ -15,7 +15,7 @@ build:
 python:
   install:
     - method: pip
-      path: ./docs
+      path: ./docs/requirements.txt
     - requirements: docs/requirements.txt
     - method: setuptools
       path: jockmkt_trading_bot/jockbot
