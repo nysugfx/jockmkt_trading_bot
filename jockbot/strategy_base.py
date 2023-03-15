@@ -102,7 +102,7 @@ class Strategy:
 
     """
 
-    def __init__(self, config: Type[StrategyConfig] | StrategyConfig):
+    def __init__(self, config: StrategyConfig):
         self.config: StrategyConfig = config
 
     def on_start(self, jockbot: JockBot):
