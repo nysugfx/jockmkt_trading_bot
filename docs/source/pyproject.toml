@@ -5,3 +5,6 @@ requires = ['setuptools', 'jockmkt-sdk']
 name = "jockbot"
 authors = [{name = "Alex Friedman/nysugfx", email = "nysu.gfx@gmail.com"}]
 dynamic = ["version", "description"]
+
+[tool.setuptools]
+packages = ['jockbot', 'jockbot.strategies.ipo', 'jockbot.strategies.live']
