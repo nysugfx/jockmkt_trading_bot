@@ -17,8 +17,6 @@ python:
     - method: pip
       path: ./
     - requirements: docs/requirements.txt
-    - method: setuptools
-      path: jockmkt_trading_bot/jockbot
 
         # Build documentation in the docs_sdk/ directory with Sphinx
 sphinx:
