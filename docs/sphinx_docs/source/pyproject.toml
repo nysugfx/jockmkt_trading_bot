@@ -1,0 +1,7 @@
+[build-system]
+requires = ['setuptools', 'jockmkt-sdk']
+
+[project]
+name = "jockbot"
+authors = [{name = "Alex Friedman/nysugfx", email = "nysu.gfx@gmail.com"}]
+dynamic = ["version", "description"]

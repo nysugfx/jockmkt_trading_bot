@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="custom_strategies.html">Building Strategies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trading.html">Trading Examples</a></li>
 </ul>
 
         </div>
@@ -83,23 +84,24 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
 <section id="first">
 <h2>First…<a class="headerlink" href="#first" title="Permalink to this headline"></a></h2>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt>Step 1:</dt><dd><ul>
+<dt>Step 1:</dt><dd><ul class="simple">
 <li><p>Fork/Clone this GitHub repository to your local machine</p></li>
+<li><p><strong>Make sure you have Python &gt;= 3.10</strong></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Step 2:</dt><dd><ul>
+<dt>Step 2:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Step 3:</dt><dd><ul>
+<dt>Step 3:</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>Set the following environment variables (this can be done via terminal or in your IDE):</dt><dd><ul>
 <li><p><strong>api_key</strong></p></li>
@@ -135,17 +137,20 @@
 </dd>
 </dl>
 </li>
-<li><p>Step 4 (TRADE!):</p></li>
+<li><p>Step 4 (TRADE!):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>open <code class="docutils literal notranslate"><span class="pre">main.py</span></code></p></li>
 </ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jockbot</span>
-<span class="kn">from</span> <span class="nn">strategy_base</span> <span class="kn">import</span> <span class="n">Strategy</span><span class="p">,</span> <span class="n">StrategyConfig</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">StrategyConfig</span><span class="p">()</span>
     <span class="n">config</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="s1">&#39;evt_xxx&#39;</span>
     <span class="c1">#  adjust other parameters as you would like. See details below.</span>
     <span class="n">strat</span> <span class="o">=</span> <span class="n">Strategy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-    <span class="n">jockbot</span><span class="o">.</span><span class="n">trade_strategy</span><span class="p">(</span><span class="n">strat</span><span class="p">)</span>
+    <span class="n">trade_strategy</span><span class="p">(</span><span class="n">strat</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">

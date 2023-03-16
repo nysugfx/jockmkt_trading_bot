@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="prebuilt_strategies.html#ipo-strategies">IPO Strategies</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Building Strategies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trading.html">Trading Examples</a></li>
 </ul>
 
         </div>
@@ -84,7 +85,7 @@ but they must return a <a class="reference internal" href="signals.html#signals.
 <p>There are methods within the JockBot that allow the user to fetch certain variables from the jockbot too.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="strategy_base.Strategy">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategy_base.</span></span><span class="sig-name descname"><span class="pre">Strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="config.html#strategy_base.StrategyConfig" title="strategy_base.StrategyConfig"><span class="pre">strategy_base.StrategyConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="config.html#strategy_base.StrategyConfig" title="strategy_base.StrategyConfig"><span class="pre">strategy_base.StrategyConfig</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#strategy_base.Strategy" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">strategy_base.</span></span><span class="sig-name descname"><span class="pre">Strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="config.html#strategy_base.StrategyConfig" title="strategy_base.StrategyConfig"><span class="pre">strategy_base.StrategyConfig</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#strategy_base.Strategy" title="Permalink to this definition"></a></dt>
 <dd><p>all strategy funcs must return a Signal object, to which you pass in an order (or list of orders)
 and/or a list of order_ids to cancel</p>
 <p>for example:</p>
