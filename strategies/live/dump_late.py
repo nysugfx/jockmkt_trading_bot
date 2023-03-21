@@ -10,6 +10,7 @@ from jockbot.signals import Signal
 from typing import Union, Type, Dict
 
 
+
 class DumpLateConfig(StrategyConfig):
     """
     Config additions required for the DumpLate strategy.
