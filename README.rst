@@ -67,8 +67,8 @@ Getting Started
 
 5. Observe performance
     - Monitor your strategy!
-    - `Profit and Loss <localhost:8080/pnl>`_
-    - `Holdings <localhost:8080/holdings>`_
+    - `Profit and Loss <localhost:8080/pnl>`_ (http://localhost:8080/pnl)
+    - `Holdings <localhost:8080/holdings>`_ (http://localhost:8080/holdings)
 
 
 EXAMPLES
