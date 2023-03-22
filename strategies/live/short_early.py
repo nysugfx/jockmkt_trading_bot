@@ -36,9 +36,9 @@ class ShortEarlyConfig(StrategyConfig):
     # If you choose 0.5, you will short sell down to 95% of the estimated price
     double_down = False  # If True, the strategy will continue to short a player if they score more fantasy points
     # if False, it will short the player once and hold the position.
-    max_amount_completed = 0.09  # Maximum amount of the entire event completed, ideally < 0.25
-    min_pct_gain = 25  # How high above a player's IPO price their estimated price must be in order to short them
-    min_ipo_price = 25  # Pool of potential shorts limited to players who IPO above this parameter
+    max_amount_completed = 0.1  # Maximum amount of the entire event completed, ideally < 0.25
+    min_pct_gain = 75  # How high above a player's IPO price their estimated price must be in order to short them
+    min_ipo_price = 10  # Pool of potential shorts limited to players who IPO above this parameter
     # if price_risk > 1 or price_risk < -1:
         # raise ValueError
 
