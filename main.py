@@ -16,8 +16,8 @@ import webbrowser
 import pyfiglet
 
 from strategies.live.dump_late import DumpLateConfig, DumpLate
+from strategies.live.short_early import ShortEarlyConfig, ShortEarly
 from strategies.ipo.heat_check import HeatCheckConfig, HeatCheck, HeatCheckStrategies
-from strategies.live.harv_beat import HBStrategy, HBConfig
 
 
 def trade_strategy(strategy: Strategy, counter=EnvOrderCt()):
@@ -118,15 +118,15 @@ if __name__ == "__main__":
     # os.environ['api_key'] = 'enter_your_api_key_here'
 
     # initialize and customize your strategy config
-    my_strat_config1 = HBConfig()
+    my_strat_config1 = DumpLateConfig()
     # my_strat_config1.strategy = 1
     my_strat_config1.log_level = logging.DEBUG
     my_strat_config1.order_size = 1
     my_strat_config1.event_id = 'evt_640ff14380a6b6c64d2fa277ea804b76'
     my_strat_config1.web_popup = True
 
-    cf2 = HBConfig()
+    cf2 = ShortEarlyConfig()
     cf2.order_size = 1
     cf2.event_id = 'evt_640ff14380a6b6c64d2fa277ea804b76'
 
-    trade_multiple_strategies([HBStrategy(my_strat_config1), HBStrategy(cf2)])
+    trade_multiple_strategies([DumpLate(my_strat_config1), ShortEarly(cf2)])
