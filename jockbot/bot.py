@@ -303,7 +303,7 @@ class JockBot(object):
             total = order.quantity * order.limit_price * 1.02
         else:
             total = order.quantity * (25 - (order.limit_price * 1.02))
-        if total > self.balance:
+        if total > self.balance and order.quantity > abs(self.holdings[order.tradeable_id].quantity_owned):
             self.logger.debug(f'{total} is greater than {self.balance}. Cannot place order')
             return False
         return True
