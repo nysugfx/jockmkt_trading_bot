@@ -17,9 +17,9 @@ def pnl_calc(client: Client, event_id: str, pages=3, order_count=False):
         'event_id': event_id,
         'event_name': event.name,
         'leaderboard_position': entry.leaderboard_pos,
-        'pnl_w_fees': pnl_w_fees,
-        'fees_paid': total_fees,
-        'net_profit': pnl_w_fees - total_fees
+        'pnl_w_fees': round(pnl_w_fees, 2),
+        'fees_paid': round(total_fees, 2),
+        'net_profit': round(pnl_w_fees - total_fees, 2)
     }
 
 
