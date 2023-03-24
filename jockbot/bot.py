@@ -399,6 +399,12 @@ class JockBot(object):
                 self.client.delete_order(cancel.order_id)
 
             for order in orders:
+                if order.limit_price is None:
+                    if order.side == 'buy':
+                        order.limit_price = self.player_dict[order.tradeable_id]['ask'][-1]
+                    elif order.side == 'sell':
+                        order.limit_price = self.player_dict[order.tradeable_id]['bid'][-1]
+                        
                 if self.check_max_spend(order):
                     # CHECKING FOR MAX SPEND
                     self.logger.warning('Order would place you over event max spend.')
