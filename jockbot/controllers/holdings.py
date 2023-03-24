@@ -79,8 +79,8 @@ def build_holdings_dict(client: Client, event_id):
         holding_dict['tradeable_id'] = tdbl_id
         new_holdings.append(holding_dict)
     holdings_dict['holdings'] = new_holdings
-    pnl = sum([i['total_profit'] for i in new_holdings])
-    holdings_dict['total_value'] = sum([i['total_cost'] for i in new_holdings]) + pnl
+    pnl = round(sum([i['total_profit'] for i in new_holdings]), 2)
+    holdings_dict['total_value'] = round(sum([i['total_cost'] for i in new_holdings]) + pnl, 2)
     holdings_dict['pnl'] = pnl
     return holdings_dict
 
