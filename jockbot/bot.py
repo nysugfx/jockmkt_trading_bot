@@ -278,12 +278,13 @@ class JockBot(object):
     def check_max_spend(self, order):
         if order.quantity > 0:
             if order.quantity * order.limit_price * (1 + self.fees) + self.spent > self.strategy.config.max_spend:
+                self.logger.warning(f'Your max spend is {self.strategy.config.max_spend}, and this order will bring you above your max_spend.')
                 return True
         elif order.quantity < 0:
             hold = order.quantity * (25 - order.limit_price)
             if hold * (1 + self.fees) + self.spent > self.strategy.config.max_spend:
+                self.logger.warning(f'Your max spend is {self.strategy.config.max_spend}, and this order will bring you above your max_spend.')
                 return True
-        self.logger.warning(f'Your max spend is {self.strategy.config.max_spend}, and this order will bring you above your max_spend.')
         return False
 
     def check_max_pos_size(self, order: OrderSignal):
