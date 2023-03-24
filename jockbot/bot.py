@@ -289,9 +289,11 @@ class JockBot(object):
 
     def check_max_pos_size(self, order: OrderSignal):
         if order.side == 'sell':
-            order.quantity = -order.quantity
+            quantity = -order.quantity
+        else:
+            quantity = order.quantity
         if order.tradeable_id in self.holdings:
-            if abs(self.holdings.get(order.tradeable_id).quantity_owned + order.quantity) > self.max_position:
+            if abs(self.holdings.get(order.tradeable_id).quantity_owned + quantity) > self.max_position:
                 return True
         return False
 
